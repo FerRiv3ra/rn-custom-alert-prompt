@@ -1,7 +1,15 @@
 {
-  "name": "rncustomalertprompt",
-  "version": "0.0.1",
-  "private": true,
+  "name": "rn-custom-alert-prompt",
+  "version": "1.0.0",
+  "description": "ReactNative Alert & Prompt with no dependencies",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "src",
+    "dist/*",
+    "types/*"
+  ],
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -30,6 +38,21 @@
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FerRiv3ra/rn-custom-alert-prompt.git"
+  },
+  "keywords": [
+    "ReactNative",
+    "Alert",
+    "Prompt"
+  ],
+  "author": "FerRivera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FerRiv3ra/rn-custom-alert-prompt/issues"
+  },
+  "homepage": "https://github.com/FerRiv3ra/rn-custom-alert-prompt#readme",
   "engines": {
     "node": ">=18"
   }

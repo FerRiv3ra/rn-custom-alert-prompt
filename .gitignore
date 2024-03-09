@@ -2,6 +2,14 @@
 #
 .DS_Store
 
+# Personal
+dist/
+/components/
+/data/
+/package/
+*.tgz
+.npmignore
+
 # Xcode
 #
 build/
