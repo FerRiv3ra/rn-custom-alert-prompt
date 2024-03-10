@@ -5,17 +5,18 @@ import {Button as ButtonType} from '../types/alertTypes';
 
 type Props = {
   button: ButtonType;
+  isFirst?: boolean;
 };
 
-export const Button = ({button}: Props) => {
-  const {text, onPress, textColor} = button;
+export const Button = ({button, isFirst}: Props) => {
+  const {text, onPress, textStyle} = button;
 
   return (
     <TouchableOpacity
-      style={{...styles.button}}
+      style={{...styles.button, borderLeftWidth: isFirst ? 0 : 1}}
       activeOpacity={0.6}
       onPress={onPress}>
-      <Text style={{color: textColor, textAlign: 'center'}}>{text}</Text>
+      <Text style={[{textAlign: 'center'}, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };
