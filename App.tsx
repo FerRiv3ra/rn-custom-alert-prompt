@@ -1,11 +1,11 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {AlertContainer, alert, prompt} from './src';
+import {Alert, AlertContainer} from './src';
 
 export const App = () => {
   const onPress = async (type: 'prompt' | 'alert') => {
     if (type === 'alert') {
-      const resp = await alert({
+      const resp = await Alert.alert({
         title: 'Alert',
         description:
           'Would you like to continue learning how to use iOS alerts?',
@@ -13,10 +13,11 @@ export const App = () => {
       });
       console.log(resp);
     } else {
-      const resp = await prompt({
+      const resp = await Alert.prompt({
         title: 'Prompt',
         description:
           'Would you like to continue learning how to use iOS alerts?',
+        label: 'Email',
       });
       console.log({resp});
     }
@@ -31,7 +32,7 @@ export const App = () => {
           alignItems: 'center',
           gap: 10,
         }}>
-        <AlertContainer />
+        <AlertContainer theme="ios" appearance="light" />
         <TouchableOpacity
           onPress={() => onPress('alert')}
           style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>

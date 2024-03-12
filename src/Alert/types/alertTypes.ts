@@ -10,12 +10,30 @@ export type Button = {
 
 export type PromptData = {
   title: string;
+  label?: string;
+  placeholder?: string;
   description?: string;
   buttons?: Button[];
-  onPress?: () => void;
 };
 
 export interface AlertData extends PromptData {
   showCancelButton?: boolean;
   icon?: Icon;
 }
+
+type Alpha = 0.0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0;
+
+export type PersonalTheme = {
+  backgroundColor?: `rgba(${number},${number},${number},${Alpha})`;
+  backgroundInputColor?: string;
+  cardBackgroundColor?: string;
+  descriptionColor?: string;
+  inputBorderColor?: string;
+  inputColor?: string;
+  lineColor?: string;
+  placeholderColor?: string;
+  textButtonColor?: string;
+  titleColor?: string;
+};
+
+export type ValidPlatforms = 'ios' | 'android';
