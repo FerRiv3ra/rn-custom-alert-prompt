@@ -10,15 +10,18 @@ export type Button = {
 
 export type PromptData = {
   title: string;
+  buttons?: Button[];
+  cancelColorText?: string;
+  cancelText?: string;
+  confirmColorText?: string;
+  confirmText?: string;
+  description?: string;
   label?: string;
   placeholder?: string;
-  description?: string;
-  buttons?: Button[];
 };
 
 export interface AlertData extends PromptData {
   showCancelButton?: boolean;
-  icon?: Icon;
 }
 
 type Alpha = 0.0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0;
@@ -37,3 +40,5 @@ export type PersonalTheme = {
 };
 
 export type ValidPlatforms = 'ios' | 'android';
+
+export type Appearances = 'light' | 'dark';

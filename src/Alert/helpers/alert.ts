@@ -1,4 +1,4 @@
-import {AlertData, Icon, PromptData} from '../types/alertTypes';
+import {AlertData, PromptData} from '../types/alertTypes';
 import {
   notifySubscribers,
   subscribeToModalChange,
@@ -10,17 +10,15 @@ export namespace Alert {
   export function alert(
     title: string,
     description: string,
-    icon?: Icon,
     onPress?: () => void,
   ): Promise<boolean>;
   export function alert(
     param1: AlertData | string,
     param2?: string,
-    icon?: Icon,
   ): Promise<boolean> {
     let data: AlertData;
     if (typeof param1 === 'string') {
-      data = {title: param1, description: param2!, icon};
+      data = {title: param1, description: param2!};
     } else {
       data = param1;
     }

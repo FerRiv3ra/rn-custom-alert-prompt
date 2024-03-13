@@ -1,19 +1,33 @@
 import {StyleSheet} from 'react-native';
-import {ValidPlatforms} from '../types/alertTypes';
+import {PersonalTheme, ValidPlatforms} from '../types/alertTypes';
 
-export const getStyles = (os: ValidPlatforms, dark = false) => {
+export const getStyles = (
+  os: ValidPlatforms,
+  dark = false,
+  personalTheme?: PersonalTheme,
+) => {
+  const {
+    backgroundInputColor,
+    cardBackgroundColor,
+    descriptionColor,
+    inputBorderColor,
+    inputColor,
+    lineColor,
+    titleColor,
+  } = personalTheme || {};
+
   const ios = StyleSheet.create({
     button: {
       backgroundColor: 'transparent',
-      borderLeftColor: dark ? '#616161' : '#C3C3C3',
-      borderTopColor: dark ? '#616161' : '#C3C3C3',
+      borderLeftColor: !!lineColor ? lineColor : dark ? '#616161' : '#C3C3C3',
+      borderTopColor: !!lineColor ? lineColor : dark ? '#616161' : '#C3C3C3',
       borderTopWidth: 1,
       flex: 1,
       paddingVertical: 12,
     },
     buttonsContainer: {flexDirection: 'row', marginTop: 15},
     description: {
-      color: dark ? '#FFF' : '#000',
+      color: !!descriptionColor ? descriptionColor : dark ? '#FFF' : '#000',
       marginTop: 8,
       paddingHorizontal: '15%',
       textAlign: 'center',
@@ -30,22 +44,35 @@ export const getStyles = (os: ValidPlatforms, dark = false) => {
       justifyContent: 'center',
     },
     modalView: {
-      backgroundColor: dark ? '#222' : '#EEE',
+      backgroundColor: !!cardBackgroundColor
+        ? cardBackgroundColor
+        : dark
+        ? '#222'
+        : '#EEE',
       borderRadius: 10,
       paddingTop: 20,
       width: '90%',
     },
     textInput: {
-      backgroundColor: dark ? '#1c1c1e' : '#FFF',
-      borderColor: dark ? '#616161' : '#C3C3C3',
+      backgroundColor: !!backgroundInputColor
+        ? backgroundInputColor
+        : dark
+        ? '#1c1c1e'
+        : '#FFF',
+      borderColor: !!inputBorderColor
+        ? inputBorderColor
+        : dark
+        ? '#616161'
+        : '#C3C3C3',
       borderRadius: 10,
       borderWidth: 1,
+      color: !!inputColor ? inputColor : dark ? '#FFF' : '#000',
       marginHorizontal: '5%',
       marginTop: 10,
       padding: 7,
     },
     title: {
-      color: dark ? '#FFF' : '#000',
+      color: !!titleColor ? titleColor : dark ? '#FFF' : '#000',
       fontSize: 17,
       fontWeight: '600',
       textAlign: 'center',
@@ -65,7 +92,7 @@ export const getStyles = (os: ValidPlatforms, dark = false) => {
       paddingHorizontal: 20,
     },
     description: {
-      color: dark ? '#FFF' : '#000',
+      color: !!descriptionColor ? descriptionColor : dark ? '#FFF' : '#000',
       marginBottom: 10,
       marginTop: 8,
       paddingHorizontal: 20,
@@ -82,20 +109,25 @@ export const getStyles = (os: ValidPlatforms, dark = false) => {
       justifyContent: 'center',
     },
     modalView: {
-      backgroundColor: dark ? '#282f2c' : '#FFF',
+      backgroundColor: !!cardBackgroundColor
+        ? cardBackgroundColor
+        : dark
+        ? '#282f2c'
+        : '#FFF',
       borderRadius: 5,
       paddingTop: 20,
       width: '90%',
     },
     textInput: {
-      borderBottomColor: '#00d982',
+      borderBottomColor: !!inputBorderColor ? inputBorderColor : '#00d982',
       borderBottomWidth: 1.5,
       borderRadius: 3,
+      color: !!inputColor ? inputColor : dark ? '#FFF' : '#000',
       marginHorizontal: '5%',
       padding: 7,
     },
     title: {
-      color: dark ? '#FFF' : '#000',
+      color: !!titleColor ? titleColor : dark ? '#FFF' : '#000',
       fontSize: 17,
       fontWeight: '600',
       marginHorizontal: 20,

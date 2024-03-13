@@ -8,7 +8,7 @@ export const App = () => {
       const resp = await Alert.alert({
         title: 'Alert',
         description:
-          'Would you like to continue learning how to use iOS alerts?',
+          'Would you like to continue learning how to use React Native alerts?',
         showCancelButton: true,
       });
       console.log(resp);
@@ -16,8 +16,9 @@ export const App = () => {
       const resp = await Alert.prompt({
         title: 'Prompt',
         description:
-          'Would you like to continue learning how to use iOS alerts?',
+          'Enter your email to continue learning how to use React Native alerts!',
         label: 'Email',
+        placeholder: 'example@example.com',
       });
       console.log({resp});
     }
@@ -32,7 +33,7 @@ export const App = () => {
           alignItems: 'center',
           gap: 10,
         }}>
-        <AlertContainer theme="ios" appearance="light" />
+        <AlertContainer theme="ios" appearance="dark" />
         <TouchableOpacity
           onPress={() => onPress('alert')}
           style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>

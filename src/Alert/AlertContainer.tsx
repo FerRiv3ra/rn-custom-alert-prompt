@@ -7,45 +7,81 @@ import {useTheme} from './hooks/useTheme';
 import {AlertData, PersonalTheme} from './types/alertTypes';
 
 type Props = {
-  theme?: 'ios' | 'android';
+  animationType?: 'none' | 'fade' | 'slide';
   appearance?: 'light' | 'dark';
   personalTheme?: PersonalTheme;
+  theme?: 'ios' | 'android';
 };
 
-export function AlertContainer({theme, appearance}: Props) {
+export function AlertContainer({
+  theme,
+  appearance,
+  personalTheme,
+  animationType,
+}: Props) {
   const {prompt, isAlert, setTextInput, handlePress} = useAlertContainer();
   const {styles, textButtonColor, cancelWeight, ios} = useTheme({
     theme,
     appearance,
+    personalTheme,
   });
 
+  if (!prompt) return;
+
+  const {placeholderColor, backgroundColor} = personalTheme ?? {};
+
+  const {
+    title,
+    buttons,
+    cancelColorText,
+    cancelText,
+    confirmColorText,
+    confirmText,
+    description,
+    label,
+    placeholder,
+  } = prompt;
+
   return (
-    <Modal style={{zIndex: 100}} visible={!!prompt} transparent>
+    <Modal
+      style={{zIndex: 100}}
+      visible={!!prompt}
+      transparent
+      animationType={animationType}>
       <View
-        style={{...styles.modalContainer, backgroundColor: 'rgba(0,0,0,0.4)'}}>
+        style={{
+          ...styles.modalContainer,
+          backgroundColor: !!backgroundColor
+            ? backgroundColor
+            : 'rgba(0,0,0,0.4)',
+        }}>
         <View
           style={{
             ...styles.modalView,
           }}>
-          <Text style={{...styles.title}}>{prompt?.title}</Text>
-          {prompt && prompt.description && (
-            <Text style={{...styles.description}}>{prompt.description}</Text>
+          <Text style={{...styles.title}}>{title}</Text>
+          {description && (
+            <Text style={{...styles.description}}>{description}</Text>
           )}
-          {!ios && !!prompt?.label && (
-            <Text style={{...styles.label}}>{prompt.label}</Text>
-          )}
+          {!ios && !!label && <Text style={{...styles.label}}>{label}</Text>}
           {!isAlert && (
             <TextInput
-              placeholder={prompt?.placeholder ?? 'Placeholder'}
+              placeholder={placeholder ?? 'Placeholder'}
               onChangeText={setTextInput}
-              placeholderTextColor={appearance === 'dark' ? '#666' : '#C3C3C3'}
+              placeholderTextColor={
+                !!placeholderColor
+                  ? placeholderColor
+                  : appearance === 'dark'
+                  ? '#666'
+                  : '#C3C3C3'
+              }
               style={{...styles.textInput}}
             />
           )}
 
           <View style={{...styles.buttonsContainer}}>
-            {!!prompt?.buttons ? (
-              prompt?.buttons.map((button, index) => (
+            {!!buttons ? (
+              buttons.map((button, index) => (
                 <Button
                   button={button}
                   isFirst={index === 0}
@@ -56,14 +92,13 @@ export function AlertContainer({theme, appearance}: Props) {
               ))
             ) : (
               <>
-                {(!isAlert ||
-                  (prompt && (prompt as AlertData).showCancelButton)) && (
+                {(!isAlert || (prompt as AlertData).showCancelButton) && (
                   <Button
                     button={{
-                      text: 'Cancel',
+                      text: cancelText ?? 'Cancel',
                       onPress: () => handlePress(true),
                       textStyle: {
-                        color: textButtonColor,
+                        color: cancelColorText ?? textButtonColor,
                         fontWeight: cancelWeight,
                       },
                     }}
@@ -74,10 +109,10 @@ export function AlertContainer({theme, appearance}: Props) {
                 )}
                 <Button
                   button={{
-                    text: isAlert ? 'Ok' : 'Done',
+                    text: confirmText ? confirmText : isAlert ? 'Ok' : 'Done',
                     onPress: () => handlePress(),
                     textStyle: {
-                      color: textButtonColor,
+                      color: confirmColorText ?? textButtonColor,
                       fontWeight: isAlert ? '500' : '700',
                     },
                   }}

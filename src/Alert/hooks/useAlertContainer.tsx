@@ -20,9 +20,13 @@ export const useAlertContainer = () => {
 
   const handlePress = (cancel = false) => {
     if (!isAlert) {
-      notifySubscribers({
-        title: textInput,
-      });
+      notifySubscribers(
+        cancel
+          ? undefined
+          : {
+              title: textInput,
+            },
+      );
     } else {
       notifySubscribers(cancel ? undefined : prompt);
     }

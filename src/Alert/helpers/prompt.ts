@@ -5,20 +5,18 @@ import {
   subscribers,
 } from './subscribers';
 
-export function prompt(params: PromptData): Promise<string>;
+export function prompt(params: PromptData): Promise<string | undefined>;
 export function prompt(
   title: string,
   description?: string,
-  onPress?: () => void,
-): Promise<string>;
+): Promise<string | undefined>;
 export function prompt(
   param1: PromptData | string,
   param2?: string,
-  onPress?: () => void,
-): Promise<string> {
+): Promise<string | undefined> {
   let data: PromptData;
   if (typeof param1 === 'string') {
-    data = {title: param1, description: param2, onPress};
+    data = {title: param1, description: param2};
   } else {
     data = param1;
   }
@@ -27,7 +25,7 @@ export function prompt(
   return new Promise(res => {
     subscribeToModalChange(data => {
       subscribers.shift();
-      res(data?.title!);
+      res(data?.title);
       notifySubscribers(undefined);
     });
   });

@@ -1,17 +1,25 @@
-import {Platform} from 'react-native';
+import {Appearance, Platform} from 'react-native';
 import {getStyles} from '../theme';
-import {ValidPlatforms} from '../types/alertTypes';
+import {Appearances, PersonalTheme, ValidPlatforms} from '../types/alertTypes';
 
 type Props = {
   theme?: ValidPlatforms;
-  appearance?: 'light' | 'dark';
+  appearance?: Appearances;
+  personalTheme?: PersonalTheme;
 };
 
-export const useTheme = ({theme, appearance}: Props) => {
+export const useTheme = ({theme, appearance, personalTheme}: Props) => {
+  if (!appearance) {
+    appearance = Appearance.getColorScheme() as Appearances;
+  }
+
   const dark = appearance === 'dark';
+  const personalTextButtonColor = !!personalTheme
+    ? personalTheme.textButtonColor
+    : undefined;
 
   let platform = Platform.OS;
-  let textButtonColor = '#4F87FF';
+  let textButtonColor = personalTextButtonColor ?? '#4F87FF';
   let cancelWeight: '500' | '700' = '500';
 
   if (!!theme) {
@@ -26,11 +34,11 @@ export const useTheme = ({theme, appearance}: Props) => {
     cancelWeight = '700';
   } else {
     platform = 'android';
-    textButtonColor = '#00d982';
+    textButtonColor = personalTextButtonColor ?? '#00d982';
   }
 
   return {
-    styles: getStyles(platform, dark),
+    styles: getStyles(platform, dark, personalTheme),
     ios: platform === 'ios',
     textButtonColor,
     cancelWeight,
