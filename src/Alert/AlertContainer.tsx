@@ -66,7 +66,7 @@ export function AlertContainer({
           {!ios && !!label && <Text style={{...styles.label}}>{label}</Text>}
           {!isAlert && (
             <TextInput
-              placeholder={placeholder ?? 'Placeholder'}
+              placeholder={placeholder ?? prompt.title}
               onChangeText={setTextInput}
               placeholderTextColor={
                 !!placeholderColor

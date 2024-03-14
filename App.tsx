@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {Alert, AlertContainer} from './src';
+import {Alert, AlertContainer} from 'rn-custom-alert-prompt';
 
 export const App = () => {
   const onPress = async (type: 'prompt' | 'alert') => {
@@ -33,7 +33,7 @@ export const App = () => {
           alignItems: 'center',
           gap: 10,
         }}>
-        <AlertContainer theme="ios" appearance="dark" />
+        <AlertContainer theme="android" appearance="dark" />
         <TouchableOpacity
           onPress={() => onPress('alert')}
           style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>

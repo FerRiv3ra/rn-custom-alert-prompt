@@ -34,7 +34,7 @@ export const useTheme = ({theme, appearance, personalTheme}: Props) => {
     cancelWeight = '700';
   } else {
     platform = 'android';
-    textButtonColor = personalTextButtonColor ?? '#00d982';
+    textButtonColor = personalTextButtonColor ?? '#00D982';
   }
 
   return {

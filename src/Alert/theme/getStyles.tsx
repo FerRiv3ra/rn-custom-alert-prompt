@@ -112,13 +112,16 @@ export const getStyles = (
       backgroundColor: !!cardBackgroundColor
         ? cardBackgroundColor
         : dark
-        ? '#282f2c'
+        ? '#282F2C'
         : '#FFF',
       borderRadius: 5,
       paddingTop: 20,
       width: '90%',
     },
     textInput: {
+      backgroundColor: !!backgroundInputColor
+        ? backgroundInputColor
+        : 'transparent',
       borderBottomColor: !!inputBorderColor ? inputBorderColor : '#00d982',
       borderBottomWidth: 1.5,
       borderRadius: 3,

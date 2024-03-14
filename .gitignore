@@ -5,6 +5,7 @@
 # Personal
 dist/
 /components/
+/lib-esm/
 /data/
 /package/
 *.tgz

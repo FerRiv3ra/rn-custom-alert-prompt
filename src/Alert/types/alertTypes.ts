@@ -1,11 +1,11 @@
-import {StyleProp, TextStyle} from 'react-native';
+import {GestureResponderEvent, StyleProp, TextStyle} from 'react-native';
 
 export type Icon = 'error' | 'info' | 'success';
 
 export type Button = {
   text: string;
   textStyle?: StyleProp<TextStyle>;
-  onPress?: () => void;
+  onPress?: (event: GestureResponderEvent) => void;
 };
 
 export type PromptData = {

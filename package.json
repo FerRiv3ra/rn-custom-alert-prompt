@@ -1,6 +1,6 @@
 {
   "name": "rn-custom-alert-prompt",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "ReactNative Alert & Prompt with no dependencies",
   "private": false,
   "main": "dist/index.js",
@@ -15,11 +15,13 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "build": "rm -rf dist && tsc && tsc -m es6 --outDir lib-esm"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.5"
+    "react-native": "0.73.5",
+    "rn-custom-alert-prompt": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
