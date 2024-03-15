@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {Alert, AlertContainer} from 'rn-custom-alert-prompt';
+// import {Alert, AlertContainer} from 'rn-custom-alert-prompt';
+import {Alert, AlertContainer} from './src';
 
 export const App = () => {
   const onPress = async (type: 'prompt' | 'alert') => {

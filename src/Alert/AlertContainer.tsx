@@ -19,7 +19,8 @@ export function AlertContainer({
   personalTheme,
   animationType,
 }: Props) {
-  const {prompt, isAlert, setTextInput, handlePress} = useAlertContainer();
+  const {prompt, isAlert, inputRef, setTextInput, handlePress} =
+    useAlertContainer();
   const {styles, textButtonColor, cancelWeight, ios} = useTheme({
     theme,
     appearance,
@@ -58,6 +59,7 @@ export function AlertContainer({
         <View
           style={{
             ...styles.modalView,
+            marginBottom: isAlert ? 0 : '50%',
           }}>
           <Text style={{...styles.title}}>{title}</Text>
           {description && (
@@ -75,6 +77,7 @@ export function AlertContainer({
                   ? '#666'
                   : '#C3C3C3'
               }
+              ref={inputRef}
               style={{...styles.textInput}}
             />
           )}

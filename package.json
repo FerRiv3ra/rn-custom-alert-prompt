@@ -1,6 +1,6 @@
 {
   "name": "rn-custom-alert-prompt",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ReactNative Alert & Prompt with no dependencies",
   "private": false,
   "main": "dist/index.js",

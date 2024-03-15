@@ -1,4 +1,5 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
+import {TextInput} from 'react-native';
 import {
   notifySubscribers,
   subscribeToModalChange,
@@ -10,12 +11,20 @@ export const useAlertContainer = () => {
   const [isAlert, setIsAlert] = useState(false);
   const [textInput, setTextInput] = useState('');
 
+  const inputRef = useRef<TextInput>(null);
+
   useEffect(() => {
     subscribeToModalChange((data, alert) => {
       setPrompt(data);
       setIsAlert(!!alert);
       setTextInput('');
     });
+  }, [prompt]);
+
+  useEffect(() => {
+    if (!isAlert) {
+      inputRef.current?.focus();
+    }
   }, [prompt]);
 
   const handlePress = (cancel = false) => {
@@ -37,5 +46,6 @@ export const useAlertContainer = () => {
     isAlert,
     setTextInput,
     handlePress,
+    inputRef,
   };
 };
