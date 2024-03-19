@@ -1,6 +1,6 @@
 {
   "name": "rn-custom-alert-prompt",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "ReactNative Alert & Prompt with no dependencies",
   "private": false,
   "main": "dist/index.js",
@@ -20,8 +20,7 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.5",
-    "rn-custom-alert-prompt": "^1.0.1"
+    "react-native": "0.73.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -38,6 +37,7 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
+    "rn-custom-alert-prompt": "^1.0.5",
     "typescript": "5.0.4"
   },
   "repository": {
@@ -45,9 +45,17 @@
     "url": "git+https://github.com/FerRiv3ra/rn-custom-alert-prompt.git"
   },
   "keywords": [
-    "ReactNative",
-    "Alert",
-    "Prompt"
+    "react-native",
+    "alert",
+    "prompt",
+    "async",
+    "promise",
+    "dialog",
+    "modal",
+    "UI component",
+    "user interaction",
+    "simple",
+    "lightweight"
   ],
   "author": "FerRivera",
   "license": "MIT",
