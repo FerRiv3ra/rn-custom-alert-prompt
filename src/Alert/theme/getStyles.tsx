@@ -5,6 +5,8 @@ export const getStyles = (
   os: ValidPlatforms,
   dark = false,
   personalTheme?: PersonalTheme,
+  buttons = 2,
+  icon = false,
 ) => {
   const {
     backgroundInputColor,
@@ -22,15 +24,21 @@ export const getStyles = (
       borderLeftColor: !!lineColor ? lineColor : dark ? '#616161' : '#C3C3C3',
       borderTopColor: !!lineColor ? lineColor : dark ? '#616161' : '#C3C3C3',
       borderTopWidth: 1,
-      flex: 1,
       paddingVertical: 12,
     },
-    buttonsContainer: {flexDirection: 'row', marginTop: 15},
+    buttonsContainer: {
+      flexDirection: buttons <= 2 ? 'row' : undefined,
+      marginTop: 15,
+    },
     description: {
       color: !!descriptionColor ? descriptionColor : dark ? '#FFF' : '#000',
       marginTop: 8,
-      paddingHorizontal: '15%',
+      paddingLeft: '15%',
+      paddingRight: icon ? '12%' : '15%',
       textAlign: 'center',
+    },
+    flex: {
+      flex: 1,
     },
     label: {
       color: '#4F87FF',
@@ -95,7 +103,11 @@ export const getStyles = (
       color: !!descriptionColor ? descriptionColor : dark ? '#FFF' : '#000',
       marginBottom: 10,
       marginTop: 8,
-      paddingHorizontal: 20,
+      paddingLeft: 20,
+      paddingRight: icon ? 30 : 20,
+    },
+    flex: {
+      flex: 1,
     },
     label: {
       color: '#00d982',

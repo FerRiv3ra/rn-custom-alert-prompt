@@ -11,6 +11,25 @@ export const App = () => {
         description:
           'Would you like to continue learning how to use React Native alerts?',
         showCancelButton: true,
+        icon: 'question',
+        // iconColor: 'red',
+        buttons: [
+          {
+            text: 'Cancelar',
+            textStyle: {color: 'green'},
+            onPress: () => console.log('Green'),
+          },
+          {
+            text: 'Ok',
+            textStyle: {color: 'blue'},
+            onPress: () => console.log('Blue'),
+          },
+          {
+            text: 'Tercero',
+            textStyle: {color: 'red'},
+            onPress: () => console.log('Red'),
+          },
+        ],
       });
       console.log(resp);
     } else {
@@ -34,7 +53,7 @@ export const App = () => {
           alignItems: 'center',
           gap: 10,
         }}>
-        <AlertContainer theme="android" appearance="dark" />
+        <AlertContainer />
         <TouchableOpacity
           onPress={() => onPress('alert')}
           style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>

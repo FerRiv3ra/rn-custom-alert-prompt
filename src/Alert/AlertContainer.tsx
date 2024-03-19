@@ -1,7 +1,7 @@
 import React from 'react';
 import {Modal, Text, TextInput, View} from 'react-native';
 
-import {Button} from './components/Button';
+import {Button, Icon} from './components';
 import {useAlertContainer} from './hooks/useAlertContainer';
 import {useTheme} from './hooks/useTheme';
 import {AlertData, PersonalTheme} from './types/alertTypes';
@@ -22,9 +22,11 @@ export function AlertContainer({
   const {prompt, isAlert, inputRef, setTextInput, handlePress} =
     useAlertContainer();
   const {styles, textButtonColor, cancelWeight, ios} = useTheme({
-    theme,
     appearance,
+    buttons: (prompt as AlertData)?.buttons?.length,
     personalTheme,
+    theme,
+    icon: !!(prompt as AlertData)?.icon,
   });
 
   if (!prompt) return;
@@ -33,6 +35,8 @@ export function AlertContainer({
 
   const {
     title,
+    icon,
+    iconColor,
     buttons,
     cancelColorText,
     cancelText,
@@ -41,7 +45,7 @@ export function AlertContainer({
     description,
     label,
     placeholder,
-  } = prompt;
+  } = prompt as AlertData;
 
   return (
     <Modal
@@ -61,10 +65,15 @@ export function AlertContainer({
             ...styles.modalView,
             marginBottom: isAlert ? 0 : '50%',
           }}>
-          <Text style={{...styles.title}}>{title}</Text>
-          {description && (
-            <Text style={{...styles.description}}>{description}</Text>
-          )}
+          <View style={{flexDirection: 'row', marginHorizontal: 15}}>
+            {!!icon && <Icon icon={icon} iconColor={iconColor} ios={ios} />}
+            <View>
+              <Text style={{...styles.title}}>{title}</Text>
+              {description && (
+                <Text style={{...styles.description}}>{description}</Text>
+              )}
+            </View>
+          </View>
           {!ios && !!label && <Text style={{...styles.label}}>{label}</Text>}
           {!isAlert && (
             <TextInput
@@ -91,6 +100,8 @@ export function AlertContainer({
                   key={index}
                   theme={theme}
                   appearance={appearance}
+                  buttons={buttons.length}
+                  onPress={() => handlePress(true, button.onPress)}
                 />
               ))
             ) : (

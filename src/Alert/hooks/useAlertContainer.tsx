@@ -27,7 +27,7 @@ export const useAlertContainer = () => {
     }
   }, [prompt]);
 
-  const handlePress = (cancel = false) => {
+  const handlePress = (cancel = false, callback?: () => void) => {
     if (!isAlert) {
       notifySubscribers(
         cancel
@@ -37,7 +37,12 @@ export const useAlertContainer = () => {
             },
       );
     } else {
-      notifySubscribers(cancel ? undefined : prompt);
+      if (!!callback) {
+        callback();
+        notifySubscribers(undefined);
+      } else {
+        notifySubscribers(cancel ? undefined : prompt);
+      }
     }
   };
 

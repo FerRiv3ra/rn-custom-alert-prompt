@@ -1,4 +1,4 @@
-## React Native custom Alert and Prompt V.1.0.4
+## React Native custom Alert and Prompt V.1.1.0
 
 ## Installation
 
@@ -134,15 +134,17 @@ const  MyComponent  = () => {
 
 #### Alert props
 
-| Prop                   | Description                          | Type       | Required |
-| ---------------------- | ------------------------------------ | ---------- | -------- |
-| **`title`**            | Title for your alert.                | `string`   | **Yes**  |
-| **`buttons`**          | Personalized buttons for your alert. | `Button[]` | _No_     |
-| **`cancelColorText`**  | Cancel button text color.            | `string`   | _No_     |
-| **`cancelText`**       | Cancel button text.                  | `string`   | _No_     |
-| **`confirmColorText`** | Confirm button text color.           | `string`   | _No_     |
-| **`confirmText`**      | Confirm button text.                 | `string`   | _No_     |
-| **`showCancelButton`** | Shows the cancel button.             | `boolean`  | _No_     |
+| Prop                   | Description                          | Type                                           | Required |
+| ---------------------- | ------------------------------------ | ---------------------------------------------- | -------- |
+| **`title`**            | Title for your alert.                | `string`                                       | **Yes**  |
+| **`buttons`**          | Personalized buttons for your alert. | `Button[]`                                     | _No_     |
+| **`cancelColorText`**  | Cancel button text color.            | `string`                                       | _No_     |
+| **`cancelText`**       | Cancel button text.                  | `string`                                       | _No_     |
+| **`confirmColorText`** | Confirm button text color.           | `string`                                       | _No_     |
+| **`confirmText`**      | Confirm button text.                 | `string`                                       | _No_     |
+| **`icon`**             | Alert icon.                          | `'error' \| 'info' \| 'success' \| 'question'` | _No_     |
+| **`iconColor`**        | Icon color.                          | `string`                                       | _No_     |
+| **`showCancelButton`** | Shows the cancel button.             | `boolean`                                      | _No_     |
 
 #### Button props
 
@@ -166,6 +168,13 @@ const  MyComponent  = () => {
 <p float="left">
   <img width="40%"  src="https://res.cloudinary.com/fercloudinary/image/upload/v1710435467/GitHub/Simulator_Screen_Shot_-_iPhone_13_-_2024-03-13_at_19.34.52_infgig.png" /> 
   <img width="40%" src="https://res.cloudinary.com/fercloudinary/image/upload/v1710435468/GitHub/Simulator_Screen_Shot_-_iPhone_13_-_2024-03-13_at_19.35.12_uldf9z.png" />
+</p>
+
+> With icon
+
+<p float="left">
+  <img width="40%"  src="https://res.cloudinary.com/fercloudinary/image/upload/v1710872843/GitHub/Simulator_Screen_Shot_-_iPhone_13_-_2024-03-19_at_18.26.06_auvp7s.png" /> 
+  <img width="40%" src="https://res.cloudinary.com/fercloudinary/image/upload/v1710872843/GitHub/Simulator_Screen_Shot_-_iPhone_13_-_2024-03-19_at_18.24.04_l3n8em.png" />
 </p>
 
 ## Prompt
@@ -243,24 +252,15 @@ const  MyComponent  = () => {
 
 ### Prompt props
 
-| Prop                   | Description                                   | Type       | Required |
-| ---------------------- | --------------------------------------------- | ---------- | -------- |
-| **`title`**            | Title for your alert.                         | `string`   | **Yes**  |
-| **`buttons`**          | Personalized buttons for your alert.          | `Button[]` | _No_     |
-| **`cancelColorText`**  | Cancel button text color.                     | `string`   | _No_     |
-| **`cancelText`**       | Cancel button text.                           | `string`   | _No_     |
-| **`confirmColorText`** | Confirm button text color.                    | `string`   | _No_     |
-| **`confirmText`**      | Confirm button text.                          | `string`   | _No_     |
-| **`label`**            | Label for input -Android only-.               | `string`   | _No_     |
-| **`placeholder`**      | Input placeholder. **default:** _title value_ | `string`   | _No_     |
-
-#### Button props
-
-| Prop            | Description                                           | Type                   | Required |
-| --------------- | ----------------------------------------------------- | ---------------------- | -------- |
-| **`text`**      | Button text.                                          | `string`               | **Yes**  |
-| **`textStyle`** | Personalized styles for your text button.             | `StyleProp<TextStyle>` | _No_     |
-| **`onPress`**   | Function that is executed when the button is pressed. | `function`             | _No_     |
+| Prop                   | Description                                   | Type     | Required |
+| ---------------------- | --------------------------------------------- | -------- | -------- |
+| **`title`**            | Title for your alert.                         | `string` | **Yes**  |
+| **`cancelColorText`**  | Cancel button text color.                     | `string` | _No_     |
+| **`cancelText`**       | Cancel button text.                           | `string` | _No_     |
+| **`confirmColorText`** | Confirm button text color.                    | `string` | _No_     |
+| **`confirmText`**      | Confirm button text.                          | `string` | _No_     |
+| **`label`**            | Label for input -Android only-.               | `string` | _No_     |
+| **`placeholder`**      | Input placeholder. **default:** _title value_ | `string` | _No_     |
 
 #### Examples
 

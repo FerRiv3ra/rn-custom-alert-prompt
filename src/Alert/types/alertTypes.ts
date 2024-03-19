@@ -1,16 +1,15 @@
-import {GestureResponderEvent, StyleProp, TextStyle} from 'react-native';
+import {StyleProp, TextStyle} from 'react-native';
 
-export type Icon = 'error' | 'info' | 'success';
+export type Icon = 'error' | 'info' | 'success' | 'question';
 
 export type Button = {
   text: string;
   textStyle?: StyleProp<TextStyle>;
-  onPress?: (event: GestureResponderEvent) => void;
+  onPress?: () => void;
 };
 
 export type PromptData = {
   title: string;
-  buttons?: Button[];
   cancelColorText?: string;
   cancelText?: string;
   confirmColorText?: string;
@@ -21,6 +20,9 @@ export type PromptData = {
 };
 
 export interface AlertData extends PromptData {
+  buttons?: Button[];
+  icon?: Icon;
+  iconColor?: string;
   showCancelButton?: boolean;
 }
 

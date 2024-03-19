@@ -6,9 +6,17 @@ type Props = {
   theme?: ValidPlatforms;
   appearance?: Appearances;
   personalTheme?: PersonalTheme;
+  buttons?: number;
+  icon?: boolean;
 };
 
-export const useTheme = ({theme, appearance, personalTheme}: Props) => {
+export const useTheme = ({
+  appearance,
+  buttons,
+  personalTheme,
+  theme,
+  icon,
+}: Props) => {
   if (!appearance) {
     appearance = Appearance.getColorScheme() as Appearances;
   }
@@ -38,7 +46,7 @@ export const useTheme = ({theme, appearance, personalTheme}: Props) => {
   }
 
   return {
-    styles: getStyles(platform, dark, personalTheme),
+    styles: getStyles(platform, dark, personalTheme, buttons, icon),
     ios: platform === 'ios',
     textButtonColor,
     cancelWeight,
