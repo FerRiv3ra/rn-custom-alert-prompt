@@ -1,6 +1,6 @@
 {
   "name": "rn-custom-alert-prompt",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "ReactNative Alert & Prompt with no dependencies",
   "private": false,
   "main": "dist/index.js",
@@ -37,7 +37,6 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
-    "rn-custom-alert-prompt": "^1.0.5",
     "typescript": "5.0.4"
   },
   "repository": {

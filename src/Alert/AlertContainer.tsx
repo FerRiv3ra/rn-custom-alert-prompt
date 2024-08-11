@@ -49,7 +49,7 @@ export function AlertContainer({
 
   return (
     <Modal
-      style={{zIndex: 100}}
+      style={{zIndex: 999}}
       visible={!!prompt}
       transparent
       animationType={animationType}>
@@ -67,7 +67,7 @@ export function AlertContainer({
           }}>
           <View style={{flexDirection: 'row', marginHorizontal: 15}}>
             {!!icon && <Icon icon={icon} iconColor={iconColor} ios={ios} />}
-            <View>
+            <View style={{flex: 1}}>
               <Text style={{...styles.title}}>{title}</Text>
               {description && (
                 <Text style={{...styles.description}}>{description}</Text>

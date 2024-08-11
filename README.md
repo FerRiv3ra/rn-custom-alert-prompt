@@ -1,4 +1,6 @@
-## React Native custom Alert and Prompt V.1.1.0
+# React Native custom Alert and Prompt
+
+[Spanish documentation](https://github.com/FerRiv3ra/rn-custom-alert-prompt/blob/main/README-es.md)
 
 ## Installation
 
@@ -38,27 +40,27 @@ export const App = () => {
 
 You can send some optional properties in order to customize your alerts.
 
-| Prop                | Description                                              | Type                          | Required | Default                  |
-| ------------------- | -------------------------------------------------------- | ----------------------------- | -------- | ------------------------ |
-| **`animationType`** | Choose the animation with which your alert will appear.  | `'none' \| 'fade' \| 'slide'` | **NO**   | _'none'_                 |
-| **`appearance`**    | Choose between light and dark appearance for your alert. | `'light' \| 'dark'`           | **NO**   | _Device appearance_      |
-| **`personalTheme`** | Completely customize how your alert will appear.         | `PersonalTheme`               | **NO**   | _PersonalTheme defaults_ |
-| **`theme`**         | Choose the theme between iOS and Android for your alert. | `'ios' \| 'android'`          | **NO**   | _Auto detect OS_         |
+| Prop                | Description                                              | Type                          | Default                  |
+| ------------------- | -------------------------------------------------------- | ----------------------------- | ------------------------ |
+| **`animationType`** | Choose the animation with which your alert will appear.  | `'none' \| 'fade' \| 'slide'` | _'none'_                 |
+| **`appearance`**    | Choose between light and dark appearance for your alert. | `'light' \| 'dark'`           | _Device appearance_      |
+| **`personalTheme`** | Completely customize how your alert will appear.         | `PersonalTheme`               | _PersonalTheme defaults_ |
+| **`theme`**         | Choose the theme between iOS and Android for your alert. | `'ios' \| 'android'`          | _Auto detect OS_         |
 
 #### PersonalTheme Props
 
-| Prop                       | Description                                              | Type         | Required | Default iOS                           | Default Android                               |
-| -------------------------- | -------------------------------------------------------- | ------------ | -------- | ------------------------------------- | --------------------------------------------- |
-| **`backgroundColor`**      | Background color around your alert.                      | `rgba color` | **NO**   | _rgba(0,0,0,0.4)_                     | _rgba(0,0,0,0.4)_                             |
-| **`backgroundInputColor`** | Background color of the text input in the prompt.        | `string`     | **NO**   | `Light: '#1C1C1E' \| Dark: '#FFFFFF'` | `Light: 'transparent' \| Dark: 'transparent'` |
-| **`cardBackgroundColor`**  | Alert color.                                             | `string`     | **NO**   | `Light: '#EEEEEE' \| Dark: '#222222'` | `Light: '#282F2C'\| Dark: '#FFFFFF'`          |
-| **`descriptionColor`**     | Color of your alert description.                         | `string`     | **NO**   | `Light: '#000000' \| Dark: '#FFFFFF'` | `Light: '#000000'\| Dark: '#FFFFFF'`          |
-| **`inputBorderColor`**     | Border color for your prompt input.                      | `string`     | **NO**   | `Light: '#C3C3C3' \| Dark: '#616161'` | `Light: '#00D982'\| Dark: '#00D982'`          |
-| **`inputColor`**           | Color of the text input in the prompt.                   | `string`     | **NO**   | `Light: '#000000' \| Dark: '#FFFFFF'` | `Light: '#000000' \| Dark: '#FFFFFF'`         |
-| **`lineColor`**            | Color of the line border to separate buttons -iOS Only-. | `string`     | **NO**   | `Light: '#C3C3C3' \| Dark: '#616161'` | `N/A`                                         |
-| **`placeholderColor`**     | Color of the placeholder in the prompt.                  | `string`     | **NO**   | `Light: '#C3C3C3' \| Dark: '#666666'` | `Light: '#C3C3C3' \| Dark: '#666666'`         |
-| **`textButtonColor`**      | Color of the text on the buttons.                        | `string`     | **NO**   | `Light: '#4F87FF' \| Dark: '#4F87FF'` | `Light: '#00D982' \| Dark: '#00D982'`         |
-| **`titleColor`**           | Color of your alert title.                               | `string`     | **NO**   | `Light: '#000000' \| Dark: '#FFFFFF'` | `Light: '#000000' \| Dark: '#FFFFFF'`         |
+| Prop                       | Description                                              | Type         | Default iOS                           | Default Android                               |
+| -------------------------- | -------------------------------------------------------- | ------------ | ------------------------------------- | --------------------------------------------- |
+| **`backgroundColor`**      | Background color around your alert.                      | `rgba color` | _rgba(0,0,0,0.4)_                     | _rgba(0,0,0,0.4)_                             |
+| **`backgroundInputColor`** | Background color of the text input in the prompt.        | `string`     | `Light: '#1C1C1E' \| Dark: '#FFFFFF'` | `Light: 'transparent' \| Dark: 'transparent'` |
+| **`cardBackgroundColor`**  | Alert color.                                             | `string`     | `Light: '#EEEEEE' \| Dark: '#222222'` | `Light: '#282F2C'\| Dark: '#FFFFFF'`          |
+| **`descriptionColor`**     | Color of your alert description.                         | `string`     | `Light: '#000000' \| Dark: '#FFFFFF'` | `Light: '#000000'\| Dark: '#FFFFFF'`          |
+| **`inputBorderColor`**     | Border color for your prompt input.                      | `string`     | `Light: '#C3C3C3' \| Dark: '#616161'` | `Light: '#00D982'\| Dark: '#00D982'`          |
+| **`inputColor`**           | Color of the text input in the prompt.                   | `string`     | `Light: '#000000' \| Dark: '#FFFFFF'` | `Light: '#000000' \| Dark: '#FFFFFF'`         |
+| **`lineColor`**            | Color of the line border to separate buttons -iOS Only-. | `string`     | `Light: '#C3C3C3' \| Dark: '#616161'` | `N/A`                                         |
+| **`placeholderColor`**     | Color of the placeholder in the prompt.                  | `string`     | `Light: '#C3C3C3' \| Dark: '#666666'` | `Light: '#C3C3C3' \| Dark: '#666666'`         |
+| **`textButtonColor`**      | Color of the text on the buttons.                        | `string`     | `Light: '#4F87FF' \| Dark: '#4F87FF'` | `Light: '#00D982' \| Dark: '#00D982'`         |
+| **`titleColor`**           | Color of your alert title.                               | `string`     | `Light: '#000000' \| Dark: '#FFFFFF'` | `Light: '#000000' \| Dark: '#FFFFFF'`         |
 
 ## Usage
 
