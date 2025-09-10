@@ -16,4 +16,8 @@ export function subscribeToModalChange(
   callback: (data?: PromptData | AlertData, alert?: boolean) => void,
 ) {
   subscribers.push(callback);
+  return () => {
+    const index = subscribers.indexOf(callback);
+    if (index !== -1) subscribers.splice(index, 1);
+  };
 }

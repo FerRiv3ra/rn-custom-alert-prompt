@@ -19,7 +19,7 @@ export function AlertContainer({
   personalTheme,
   animationType,
 }: Props) {
-  const {prompt, isAlert, inputRef, setTextInput, handlePress} =
+  const {prompt, isAlert, inputRef, setTextInput, handlePress, textInput} =
     useAlertContainer();
   const {styles, textButtonColor, cancelWeight, ios} = useTheme({
     appearance,
@@ -77,7 +77,9 @@ export function AlertContainer({
           {!ios && !!label && <Text style={{...styles.label}}>{label}</Text>}
           {!isAlert && (
             <TextInput
+              testID="prompt-input"
               placeholder={placeholder ?? prompt.title}
+              value={textInput}
               onChangeText={setTextInput}
               placeholderTextColor={
                 !!placeholderColor

@@ -23,7 +23,7 @@ yarn add rn-custom-alert-prompt
 
 Now, we need to import the AlertContainer component. Normally you would do this in your input file, such as App.js or App.tsx.
 
-```js
+```jsx
 import {AlertContainer} from 'rn-custom-alert-prompt';
 
 export const App = () => {
@@ -33,7 +33,7 @@ export const App = () => {
       {/* Rest of your app code */}
     </View>
   );
-};
+}
 ```
 
 ### Properties
@@ -72,23 +72,24 @@ This is the typical system alert with the big difference that we can customize i
 
 #### Basic usage
 
-```js
+```jsx
 import {Text, TouchableOpacity, View} from  'react-native';
 import {Alert} from  'rn-custom-alert-prompt';
 
 const  MyComponent  = () => {
 
- const handlePress = () => {
-   Alert.alert('Title', 'Description')
- }
+  const handlePress = () => {
+    Alert.alert('Title', 'Description')
+  }
 
- return (
-   <View>
-	  <TouchableOpacity onPress={handlePress} >
+  return (
+    <View>
+      <TouchableOpacity onPress={handlePress}>
         <Text>Open Alert</Text>
       </TouchableOpacity>
-   </View>
- )
+    </View>
+  )
+}
 ```
 
 #### Examples
@@ -109,29 +110,30 @@ const  MyComponent  = () => {
 
 ### With props
 
-```js
+```jsx
 import {Text, TouchableOpacity, View} from  'react-native';
 import {Alert} from  'rn-custom-alert-prompt';
 
 const  MyComponent  = () => {
 
- const handlePress = async () => {
-   const response = await Alert.alert({
-     title: 'Alert',
-     description: 'Would you like to continue learning how to use React Native alerts?',
-     showCancelButton: true,
-   })
+  const handlePress = async () => {
+    const response = await Alert.alert({
+      title: 'Alert',
+      description: 'Would you like to continue learning how to use React Native alerts?',
+      showCancelButton: true,
+    })
 
-   console.log(response) // true or false
- }
+    console.log(response) // true or false
+  }
 
- return (
-   <View>
-	  <TouchableOpacity onPress={handlePress} >
+  return (
+    <View>
+      <TouchableOpacity onPress={handlePress}>
         <Text>Open Alert</Text>
       </TouchableOpacity>
-   </View>
- )
+    </View>
+  )
+}
 ```
 
 #### Alert props
@@ -187,25 +189,26 @@ This is the system prompt that we can use in iOS, with the big difference that w
 
 #### Basic usage
 
-```js
+```jsx
 import {Text, TouchableOpacity, View} from  'react-native';
 import {Alert} from  'rn-custom-alert-prompt';
 
 const  MyComponent  = () => {
 
- const handlePress = () => {
-   const response = await  Alert.prompt('Email', 'Please enter your email');
+  const handlePress = () => {
+    const response = await Alert.prompt('Email', 'Please enter your email');
 
-   console.log(response) // string | undefined
- }
+    console.log(response) // string | undefined
+  }
 
- return (
-   <View>
-	  <TouchableOpacity onPress={handlePress} >
+  return (
+    <View>
+      <TouchableOpacity onPress={handlePress}>
         <Text>Open Prompt</Text>
       </TouchableOpacity>
-   </View>
- )
+    </View>
+  )
+}
 ```
 
 #### Examples
@@ -226,30 +229,60 @@ const  MyComponent  = () => {
 
 #### With props
 
-```js
+```jsx
 import {Text, TouchableOpacity, View} from  'react-native';
 import {Alert} from  'rn-custom-alert-prompt';
 
 const  MyComponent  = () => {
 
- const handlePress = async () => {
-   const response = await Alert.prompt({
-     title: 'Prompt',
-     description: 'Enter your email to continue learning how to use React Native alerts!',
-     label: 'Email',
-     placeholder: 'example@example.com',
-   })
+  const handlePress = async () => {
+    const response = await Alert.prompt({
+      title: 'Prompt',
+      description: 'Enter your email to continue learning how to use React Native alerts!',
+      label: 'Email',
+      placeholder: 'example@example.com',
+    })
 
-   console.log(response) // string | undefined
- }
+    console.log(response) // string | undefined
+  }
 
- return (
-   <View>
-	  <TouchableOpacity onPress={handlePress} >
+  return (
+    <View>
+      <TouchableOpacity onPress={handlePress}>
         <Text>Open Prompt</Text>
       </TouchableOpacity>
-   </View>
- )
+    </View>
+  )
+}
+```
+
+#### With default value
+
+```jsx
+import {Text, TouchableOpacity, View} from  'react-native';
+import {Alert} from  'rn-custom-alert-prompt';
+
+const  MyComponent  = () => {
+
+    const handlePress = async () => {
+        const response = await Alert.prompt({
+            title: 'Prompt',
+            description: 'Enter your email to continue learning how to use React Native alerts!',
+            label: 'Email',
+            defaultValue: 'pre-filled@example.com',
+        })
+
+        console.log(response) // string | undefined
+    }
+
+    return (
+        <View>
+            <TouchableOpacity onPress={handlePress}>
+                <Text>Open Prompt</Text>
+            </TouchableOpacity>
+        </View>
+    )
+}
 ```
 
 ### Prompt props
@@ -263,6 +296,7 @@ const  MyComponent  = () => {
 | **`confirmText`**      | Confirm button text.                          | `string` | _No_     |
 | **`label`**            | Label for input -Android only-.               | `string` | _No_     |
 | **`placeholder`**      | Input placeholder. **default:** _title value_ | `string` | _No_     |
+| **`defaultValue`**     | default value for the input field             | `string` | _No_     |
 
 #### Examples
 

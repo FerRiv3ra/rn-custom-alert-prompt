@@ -17,6 +17,7 @@ export type PromptData = {
   description?: string;
   label?: string;
   placeholder?: string;
+  defaultValue?: string;
 };
 
 export interface AlertData extends PromptData {
