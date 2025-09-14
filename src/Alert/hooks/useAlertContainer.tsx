@@ -14,11 +14,16 @@ export const useAlertContainer = () => {
   const inputRef = useRef<TextInput>(null);
 
   useEffect(() => {
-    subscribeToModalChange((data, alert) => {
+    const unsubscribe = subscribeToModalChange((data, alert) => {
       setPrompt(data);
       setIsAlert(!!alert);
-      setTextInput('');
+      if (!alert) {
+        setTextInput((data as PromptData)?.defaultValue ?? '');
+      } else {
+        setTextInput('');
+      }
     });
+    return unsubscribe;
   }, [prompt]);
 
   useEffect(() => {
@@ -49,6 +54,7 @@ export const useAlertContainer = () => {
   return {
     prompt,
     isAlert,
+    textInput,
     setTextInput,
     handlePress,
     inputRef,
