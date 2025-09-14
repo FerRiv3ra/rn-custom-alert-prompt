@@ -30,7 +30,7 @@ export const useAlertContainer = () => {
     if (!isAlert) {
       inputRef.current?.focus();
     }
-  }, [prompt]);
+  }, [isAlert]);
 
   const handlePress = (cancel = false, callback?: () => void) => {
     if (!isAlert) {
@@ -42,7 +42,7 @@ export const useAlertContainer = () => {
             },
       );
     } else {
-      if (!!callback) {
+      if (callback) {
         callback();
         notifySubscribers(undefined);
       } else {

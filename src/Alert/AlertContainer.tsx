@@ -29,7 +29,9 @@ export function AlertContainer({
     icon: !!(prompt as AlertData)?.icon,
   });
 
-  if (!prompt) return;
+  if (!prompt) {
+    return null;
+  }
 
   const {placeholderColor, backgroundColor} = personalTheme ?? {};
 
@@ -56,7 +58,7 @@ export function AlertContainer({
       <View
         style={{
           ...styles.modalContainer,
-          backgroundColor: !!backgroundColor
+          backgroundColor: backgroundColor
             ? backgroundColor
             : 'rgba(0,0,0,0.4)',
         }}>
@@ -82,7 +84,7 @@ export function AlertContainer({
               value={textInput}
               onChangeText={setTextInput}
               placeholderTextColor={
-                !!placeholderColor
+                placeholderColor
                   ? placeholderColor
                   : appearance === 'dark'
                   ? '#666'
@@ -94,7 +96,7 @@ export function AlertContainer({
           )}
 
           <View style={{...styles.buttonsContainer}}>
-            {!!buttons ? (
+            {buttons ? (
               buttons.map((button, index) => (
                 <Button
                   button={button}

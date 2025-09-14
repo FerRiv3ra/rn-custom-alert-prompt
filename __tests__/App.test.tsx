@@ -3,14 +3,12 @@
  */
 
 import {describe, it, jest} from '@jest/globals';
-import React from 'react';
-import {render, fireEvent} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import {App} from '../App';
 
 jest.mock('react-native/Libraries/Modal/Modal', () => {
-    const { View } = require('react-native');
-    return ({ visible = true, ...props }) =>
-        visible ? <View {...props} /> : null;
+  const {View} = require('react-native');
+  return ({visible = true, ...props}) => (visible ? <View {...props} /> : null);
 });
 
 describe('App prompt defaultValue', () => {
@@ -26,7 +24,7 @@ describe('App prompt defaultValue', () => {
 
   it('opens Prompt and allows typing with empty default value', async () => {
     const {getByText, findByPlaceholderText, findByDisplayValue} = render(
-        <App />
+      <App />,
     );
 
     fireEvent.press(getByText('Open Prompt'));

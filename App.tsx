@@ -1,5 +1,4 @@
-import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 // import {Alert, AlertContainer} from 'rn-custom-alert-prompt';
 import {Alert, AlertContainer} from './src';
 
@@ -54,55 +53,38 @@ export const App = () => {
   };
 
   return (
-    <>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 10,
-        }}>
-        <AlertContainer />
-        <TouchableOpacity
-          onPress={() => onPress('alert')}
-          style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>
-          <Text
-            style={{
-              color: '#FFF',
-              fontWeight: '800',
-              fontSize: 16,
-              fontFamily: 'serif',
-            }}>
-            Open Alert
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => onPress('prompt')}
-          style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>
-          <Text
-            style={{
-              color: '#FFF',
-              fontWeight: '800',
-              fontSize: 16,
-              fontFamily: 'serif',
-            }}>
-            Open Prompt
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => onPress('prompt-default-value')}
-          style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>
-          <Text
-            style={{
-              color: '#FFF',
-              fontWeight: '800',
-              fontSize: 16,
-              fontFamily: 'serif',
-            }}>
-            Open Prompt with default value
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+      }}>
+      <AlertContainer />
+      <TouchableOpacity
+        onPress={() => onPress('alert')}
+        style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>
+        <Text style={styles.buttonText}>Open Alert</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => onPress('prompt')}
+        style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>
+        <Text style={styles.buttonText}>Open Prompt</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => onPress('prompt-default-value')}
+        style={{backgroundColor: 'blue', padding: 8, borderRadius: 4}}>
+        <Text style={styles.buttonText}>Open Prompt with default value</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonText: {
+    color: '#FFF',
+    fontWeight: '800',
+    fontSize: 16,
+    fontFamily: 'serif',
+  },
+});
