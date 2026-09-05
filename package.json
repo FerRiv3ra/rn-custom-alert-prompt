@@ -7,6 +7,7 @@
   "types": "./lib/typescript/commonjs/src/index.d.ts",
   "exports": {
     ".": {
+      "rn-custom-alert-prompt-source": "./src/index.ts",
       "import": {
         "types": "./lib/typescript/module/src/index.d.ts",
         "default": "./lib/module/index.js"
@@ -28,9 +29,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "example": "yarn workspace rn-custom-alert-prompt-example",
     "clean": "del-cli lib",
     "build": "bob build",
     "prepare": "bob build && husky",
@@ -124,10 +123,12 @@
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
-      "<rootDir>/lib/",
-      "<rootDir>/ios/",
-      "<rootDir>/android/"
-    ]
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ],
+    "moduleNameMapper": {
+      "^rn-custom-alert-prompt$": "<rootDir>/src/index.ts"
+    }
   },
   "release-it": {
     "git": {
@@ -179,5 +180,8 @@
       ]
     ]
   },
-  "packageManager": "yarn@4.11.0"
+  "packageManager": "yarn@4.11.0",
+  "workspaces": [
+    "example"
+  ]
 }

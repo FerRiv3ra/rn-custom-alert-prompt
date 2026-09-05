@@ -22,8 +22,10 @@ export default defineConfig([
       'dist/',
       'lib-esm/',
       'coverage/',
-      'ios/',
-      'android/',
+      'example/node_modules/',
+      'example/ios/',
+      'example/android/',
+      'example/dist/',
     ],
   },
   {

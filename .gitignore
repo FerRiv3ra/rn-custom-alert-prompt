@@ -5,7 +5,7 @@
 .vscode/
 jsconfig.json
 
-# Xcode
+# Xcode (example prebuild)
 build/
 *.pbxuser
 !default.pbxuser
@@ -22,9 +22,9 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-ios/.xcode.env.local
+**/.xcode.env.local
 
-# Android/IntelliJ
+# Android/IntelliJ (example prebuild)
 build/
 .idea
 .gradle
@@ -58,9 +58,12 @@ yarn-error.log
 # Bundle artifact
 *.jsbundle
 
-# Ruby / CocoaPods
-/ios/Pods/
-/vendor/bundle/
+# Expo example native folders are generated with `expo prebuild`
+example/ios
+example/android
+example/vendor/
+example/dist/
+.expo/
 
 # Metro
 .metro-health-check*

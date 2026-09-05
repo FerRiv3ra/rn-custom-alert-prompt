@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig",
   "include": ["src"],
-  "exclude": ["android", "ios", "lib", "node_modules", "**/__tests__"]
+  "exclude": ["example", "lib", "node_modules", "**/__tests__"]
 }

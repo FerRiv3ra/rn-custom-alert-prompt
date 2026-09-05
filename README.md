@@ -368,6 +368,16 @@ import type {
 - React Native `>= 0.73.0`
 - Zero runtime dependencies. Works with the New Architecture and React Native Web.
 
+## Example app
+
+`example/` is an Expo app with a button per use case. Run it from the repo root:
+
+```bash
+yarn && yarn example ios
+```
+
+`yarn example android` and `yarn example web` also work. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 This project is licenced under the [MIT License](http://opensource.org/licenses/mit-license.html).

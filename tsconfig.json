@@ -3,7 +3,10 @@
     "rootDir": ".",
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "customConditions": ["react-native-strict-api"],
+    "customConditions": [
+      "rn-custom-alert-prompt-source",
+      "react-native-strict-api"
+    ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
@@ -20,7 +23,17 @@
     "strict": true,
     "target": "ESNext",
     "verbatimModuleSyntax": true,
-    "types": ["react-native", "jest"]
+    "types": ["react-native", "jest"],
+    "paths": {
+      "rn-custom-alert-prompt": ["./src/index"]
+    }
   },
-  "exclude": ["android", "ios", "lib", "node_modules"]
+  "exclude": [
+    "lib",
+    "node_modules",
+    "example/node_modules",
+    "example/ios",
+    "example/android",
+    "example/dist"
+  ]
 }
