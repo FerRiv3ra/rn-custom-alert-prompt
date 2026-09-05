@@ -35,9 +35,15 @@ Husky runs `lint-staged` on every commit: ESLint + Prettier on staged files.
 `npm pack --dry-run` shows exactly what will be published. Only `src/` and `lib/`
 are shipped; tests, fixtures and dotfiles are excluded through the `files` field.
 
-Pushing a `v*` tag (what `yarn release` does) triggers the Release workflow, which
-verifies, builds and publishes to npm with provenance. It needs an `NPM_TOKEN`
-repository secret.
+`yarn release` bumps the version, updates the tag and creates the GitHub release; it
+does not publish. Pushing the `v*` tag triggers the Release workflow, which verifies,
+builds and publishes to npm through **trusted publishing** (OIDC) with provenance.
+No npm token or repository secret is involved.
+
+One-time setup on npmjs.com (package → Settings → Trusted Publisher → GitHub Actions):
+owner `FerRiv3ra`, repository `rn-custom-alert-prompt`, workflow `release.yml`,
+no environment. Once the first trusted publish succeeds, set _Publishing access_ to
+"Require two-factor authentication and disallow tokens".
 
 ## Example app
 

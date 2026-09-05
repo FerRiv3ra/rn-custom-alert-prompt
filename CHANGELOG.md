@@ -35,7 +35,8 @@ All notable changes to this project are documented here. The format is based on
 - Build with `react-native-builder-bob` (CommonJS, ESM and TypeScript declarations in `lib/`).
   `dist/` and `lib-esm/` are gone. `main`, `module`, `types` and `exports` point to `lib/`.
 - Tooling: ESLint 9 flat config, Prettier 3, TypeScript 5.9, React Native 0.83 dev dependencies,
-  `@testing-library/react-native` 14, `release-it`, GitHub Actions CI and tag-based release.
+  `@testing-library/react-native` 14, `release-it`, GitHub Actions CI and tag-based release
+  through npm trusted publishing (OIDC, no token).
 - `peerDependencies`: `react >= 18.2.0`, `react-native >= 0.73.0`. Node 20+ for development.
 - Package manager: Yarn 4 workspaces (`packageManager` field, `yarn.lock`). `package-lock.json` removed.
 - The demo app moved from the repo root to `example/` (Expo 55, iOS, Android and Web). It imports
