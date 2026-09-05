@@ -38,6 +38,10 @@ export default defineConfig([
     },
   },
   {
+    files: ['jest.setup.js'],
+    languageOptions: {globals: {jest: 'readonly', require: 'readonly'}},
+  },
+  {
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/consistent-type-imports': [
