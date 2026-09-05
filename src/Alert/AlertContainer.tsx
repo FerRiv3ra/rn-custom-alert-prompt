@@ -1,12 +1,11 @@
-import React from 'react';
 import {Modal, Text, TextInput, View} from 'react-native';
 
 import {Button, Icon} from './components';
 import {useAlertContainer} from './hooks/useAlertContainer';
 import {useTheme} from './hooks/useTheme';
-import {AlertData, PersonalTheme} from './types/alertTypes';
+import type {AlertData, PersonalTheme} from './types/alertTypes';
 
-type Props = {
+export type AlertContainerProps = {
   animationType?: 'none' | 'fade' | 'slide';
   appearance?: 'light' | 'dark';
   personalTheme?: PersonalTheme;
@@ -18,7 +17,7 @@ export function AlertContainer({
   appearance,
   personalTheme,
   animationType,
-}: Props) {
+}: AlertContainerProps) {
   const {prompt, isAlert, inputRef, setTextInput, handlePress, textInput} =
     useAlertContainer();
   const {styles, textButtonColor, cancelWeight, ios} = useTheme({
@@ -51,10 +50,11 @@ export function AlertContainer({
 
   return (
     <Modal
-      style={{zIndex: 999}}
+      style={{zIndex: 9999}}
       visible={!!prompt}
       transparent
-      animationType={animationType}>
+      animationType={animationType}
+      onRequestClose={() => handlePress(true)}>
       <View
         style={{
           ...styles.modalContainer,
@@ -63,6 +63,7 @@ export function AlertContainer({
             : 'rgba(0,0,0,0.4)',
         }}>
         <View
+          accessibilityViewIsModal
           style={{
             ...styles.modalView,
             marginBottom: isAlert ? 0 : '50%',
@@ -70,7 +71,9 @@ export function AlertContainer({
           <View style={{flexDirection: 'row', marginHorizontal: 15}}>
             {!!icon && <Icon icon={icon} iconColor={iconColor} ios={ios} />}
             <View style={{flex: 1}}>
-              <Text style={{...styles.title}}>{title}</Text>
+              <Text accessibilityRole="header" style={{...styles.title}}>
+                {title}
+              </Text>
               {description && (
                 <Text style={{...styles.description}}>{description}</Text>
               )}
@@ -80,15 +83,17 @@ export function AlertContainer({
           {!isAlert && (
             <TextInput
               testID="prompt-input"
-              placeholder={placeholder ?? prompt.title}
+              accessibilityLabel={label ?? placeholder ?? title}
+              placeholder={placeholder ?? title}
               value={textInput}
               onChangeText={setTextInput}
+              onSubmitEditing={() => handlePress()}
               placeholderTextColor={
                 placeholderColor
                   ? placeholderColor
                   : appearance === 'dark'
-                  ? '#666'
-                  : '#C3C3C3'
+                    ? '#666'
+                    : '#C3C3C3'
               }
               ref={inputRef}
               style={{...styles.textInput}}
