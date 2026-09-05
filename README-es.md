@@ -73,14 +73,13 @@ Esta es la típica alerta del sistema con la gran diferencia de que podemos pers
 #### Uso básico
 
 ```jsx
-import {Text, TouchableOpacity, View} from  'react-native';
-import {Alert} from  'rn-custom-alert-prompt';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {Alert} from 'rn-custom-alert-prompt';
 
-const  MyComponent  = () => {
-
+const MyComponent = () => {
   const handlePress = () => {
-    Alert.alert('Title', 'Description')
-  }
+    Alert.alert('Title', 'Description');
+  };
 
   return (
     <View>
@@ -88,8 +87,8 @@ const  MyComponent  = () => {
         <Text>Open Alert</Text>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 ```
 
 #### Ejemplos
@@ -111,20 +110,20 @@ const  MyComponent  = () => {
 ### Uso con props
 
 ```jsx
-import {Text, TouchableOpacity, View} from  'react-native';
-import {Alert} from  'rn-custom-alert-prompt';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {Alert} from 'rn-custom-alert-prompt';
 
-const  MyComponent  = () => {
-
+const MyComponent = () => {
   const handlePress = async () => {
     const response = await Alert.alert({
       title: 'Alert',
-      description: 'Would you like to continue learning how to use React Native alerts?',
+      description:
+        'Would you like to continue learning how to use React Native alerts?',
       showCancelButton: true,
-    })
+    });
 
-    console.log(response) // true or false
-  }
+    console.log(response); // true or false
+  };
 
   return (
     <View>
@@ -132,8 +131,8 @@ const  MyComponent  = () => {
         <Text>Open Alert</Text>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 ```
 
 #### Props de la alerta
@@ -141,6 +140,7 @@ const  MyComponent  = () => {
 | Prop                   | Descripción                            | Tipo                                           | Requerido |
 | ---------------------- | -------------------------------------- | ---------------------------------------------- | --------- |
 | **`title`**            | Título para tu alerta.                 | `string`                                       | **SI**    |
+| **`description`**      | Descripción de la alerta.              | `string`                                       | _No_      |
 | **`buttons`**          | Botones personalizados para la alerta. | `Button[]`                                     | _No_      |
 | **`cancelColorText`**  | Color de texto del botón cancelar.     | `string`                                       | _No_      |
 | **`cancelText`**       | Texto del botón cancelar.              | `string`                                       | _No_      |
@@ -230,21 +230,21 @@ const  MyComponent  = () => {
 #### Uso con props
 
 ```jsx
-import {Text, TouchableOpacity, View} from  'react-native';
-import {Alert} from  'rn-custom-alert-prompt';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {Alert} from 'rn-custom-alert-prompt';
 
-const  MyComponent  = () => {
-
+const MyComponent = () => {
   const handlePress = async () => {
     const response = await Alert.prompt({
       title: 'Prompt',
-      description: 'Enter your email to continue learning how to use React Native alerts!',
+      description:
+        'Enter your email to continue learning how to use React Native alerts!',
       label: 'Email',
       placeholder: 'example@example.com',
-    })
+    });
 
-    console.log(response) // string | undefined
-  }
+    console.log(response); // string | undefined
+  };
 
   return (
     <View>
@@ -252,28 +252,28 @@ const  MyComponent  = () => {
         <Text>Open Prompt</Text>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 ```
 
 #### Con valor inicial
 
 ```jsx
-import {Text, TouchableOpacity, View} from  'react-native';
-import {Alert} from  'rn-custom-alert-prompt';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {Alert} from 'rn-custom-alert-prompt';
 
-const  MyComponent  = () => {
-
+const MyComponent = () => {
   const handlePress = async () => {
     const response = await Alert.prompt({
       title: 'Prompt',
-      description: 'Enter your email to continue learning how to use React Native alerts!',
+      description:
+        'Enter your email to continue learning how to use React Native alerts!',
       label: 'Email',
       defaultValue: 'pre-filled@example.com',
-    })
+    });
 
-    console.log(response) // string | undefined
-  }
+    console.log(response); // string | undefined
+  };
 
   return (
     <View>
@@ -281,8 +281,8 @@ const  MyComponent  = () => {
         <Text>Open Prompt</Text>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 ```
 
 ### Propiedades del prompt
@@ -313,6 +313,60 @@ const  MyComponent  = () => {
   <img width="40%"  src="https://res.cloudinary.com/fercloudinary/image/upload/v1710435468/GitHub/Simulator_Screen_Shot_-_iPhone_13_-_2024-03-13_at_19.34.56_qxssok.png" /> 
   <img width="40%" src="https://res.cloudinary.com/fercloudinary/image/upload/v1710435468/GitHub/Simulator_Screen_Shot_-_iPhone_13_-_2024-03-13_at_19.35.15_hs7gk3.png" />
 </p>
+
+## Referencia de la API
+
+### `Alert.alert`
+
+```ts
+Alert.alert(params: AlertData): Promise<boolean>;
+Alert.alert(title: string, description?: string, onPress?: () => void): Promise<boolean>;
+```
+
+Resuelve `true` cuando el usuario confirma y `false` cuando se cancela (botón cancelar,
+botón atrás de Android, `Alert.dismiss()` o una nueva alerta abierta encima).
+`onPress` se ejecuta solo si se confirma. Si envías `buttons`, se ejecuta el `onPress`
+del botón presionado y la promesa resuelve `false`.
+
+### `Alert.prompt`
+
+```ts
+Alert.prompt(params: PromptData): Promise<string | undefined>;
+Alert.prompt(title: string, description?: string, onPress?: (value: string) => void): Promise<string | undefined>;
+```
+
+Resuelve con el texto ingresado, o `undefined` si se cancela. La tecla enter del teclado
+confirma el prompt. `onPress(value)` se ejecuta solo si se confirma.
+
+### `Alert.dismiss`
+
+```ts
+Alert.dismiss(): void;
+```
+
+Cierra la alerta o prompt visible. Su promesa resuelve como cancelada. Útil al navegar
+a otra pantalla o en un timeout.
+
+### TypeScript
+
+Todos los tipos públicos están exportados:
+
+```ts
+import type {
+  AlertButton,
+  AlertContainerProps,
+  AlertData,
+  AlertIcon,
+  PersonalTheme,
+  PromptData,
+} from 'rn-custom-alert-prompt';
+```
+
+## Requisitos
+
+- React `>= 18.2.0`
+- React Native `>= 0.73.0`
+- Cero dependencias. Funciona con la Nueva Arquitectura y React Native Web.
 
 ## Licencia
 
