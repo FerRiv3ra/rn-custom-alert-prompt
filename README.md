@@ -40,12 +40,13 @@ export const App = () => {
 
 You can send some optional properties in order to customize your alerts.
 
-| Prop                | Description                                              | Type                          | Default                  |
-| ------------------- | -------------------------------------------------------- | ----------------------------- | ------------------------ |
-| **`animationType`** | Choose the animation with which your alert will appear.  | `'none' \| 'fade' \| 'slide'` | _'none'_                 |
-| **`appearance`**    | Choose between light and dark appearance for your alert. | `'light' \| 'dark'`           | _Device appearance_      |
-| **`personalTheme`** | Completely customize how your alert will appear.         | `PersonalTheme`               | _PersonalTheme defaults_ |
-| **`theme`**         | Choose the theme between iOS and Android for your alert. | `'ios' \| 'android'`          | _Auto detect OS_         |
+| Prop                         | Description                                                | Type                          | Default                  |
+| ---------------------------- | ---------------------------------------------------------- | ----------------------------- | ------------------------ |
+| **`animationType`**          | Choose the animation with which your alert will appear.    | `'none' \| 'fade' \| 'slide'` | _'none'_                 |
+| **`appearance`**             | Choose between light and dark appearance for your alert.   | `'light' \| 'dark'`           | _Device appearance_      |
+| **`personalTheme`**          | Completely customize how your alert will appear.           | `PersonalTheme`               | _PersonalTheme defaults_ |
+| **`theme`**                  | Choose the theme between iOS and Android for your alert.   | `'ios' \| 'android'`          | _Auto detect OS_         |
+| **`dismissOnBackdropPress`** | Tapping the dimmed background cancels the alert or prompt. | `boolean`                     | _false_                  |
 
 #### PersonalTheme Props
 
@@ -287,16 +288,21 @@ const MyComponent = () => {
 
 ### Prompt props
 
-| Prop                   | Description                                   | Type     | Required |
-| ---------------------- | --------------------------------------------- | -------- | -------- |
-| **`title`**            | Title for your alert.                         | `string` | **Yes**  |
-| **`cancelColorText`**  | Cancel button text color.                     | `string` | _No_     |
-| **`cancelText`**       | Cancel button text.                           | `string` | _No_     |
-| **`confirmColorText`** | Confirm button text color.                    | `string` | _No_     |
-| **`confirmText`**      | Confirm button text.                          | `string` | _No_     |
-| **`label`**            | Label for input -Android only-.               | `string` | _No_     |
-| **`placeholder`**      | Input placeholder. **default:** _title value_ | `string` | _No_     |
-| **`defaultValue`**     | default value for the input field             | `string` | _No_     |
+| Prop                   | Description                                                                                                                                                     | Type                                               | Required |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | -------- |
+| **`title`**            | Title for your alert.                                                                                                                                           | `string`                                           | **Yes**  |
+| **`cancelColorText`**  | Cancel button text color.                                                                                                                                       | `string`                                           | _No_     |
+| **`cancelText`**       | Cancel button text.                                                                                                                                             | `string`                                           | _No_     |
+| **`confirmColorText`** | Confirm button text color.                                                                                                                                      | `string`                                           | _No_     |
+| **`confirmText`**      | Confirm button text.                                                                                                                                            | `string`                                           | _No_     |
+| **`label`**            | Label for input -Android only-.                                                                                                                                 | `string`                                           | _No_     |
+| **`placeholder`**      | Input placeholder. **default:** _title value_                                                                                                                   | `string`                                           | _No_     |
+| **`defaultValue`**     | default value for the input field                                                                                                                               | `string`                                           | _No_     |
+| **`keyboardType`**     | Keyboard for the input, same values as `TextInput`.                                                                                                             | `KeyboardTypeOptions`                              | _No_     |
+| **`secureTextEntry`**  | Hide the typed text (passwords, PINs).                                                                                                                          | `boolean`                                          | _No_     |
+| **`autoCapitalize`**   | Same values as `TextInput`.                                                                                                                                     | `'none' \| 'sentences' \| 'words' \| 'characters'` | _No_     |
+| **`maxLength`**        | Maximum number of characters.                                                                                                                                   | `number`                                           | _No_     |
+| **`inputProps`**       | Any other `TextInput` prop (`autoCorrect`, `returnKeyType`, `style`, ...). `value`, `onChangeText`, `placeholder` and `defaultValue` are managed by the prompt. | `TextInputProps`                                   | _No_     |
 
 #### Examples
 

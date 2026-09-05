@@ -4,6 +4,26 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project follows
 [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - Unreleased
+
+### Added
+
+- Prompt input options: `keyboardType`, `secureTextEntry`, `autoCapitalize`, `maxLength`,
+  and `inputProps` for any other `TextInput` prop (the prompt keeps control of `value`,
+  `onChangeText`, `placeholder` and `defaultValue`).
+- `dismissOnBackdropPress` on `AlertContainer`: tapping the dimmed background cancels the
+  alert or prompt. Off by default.
+
+### Fixed
+
+- The prompt no longer shifts the card up by a fixed 50 % of the screen to make room for
+  the keyboard. The card is centred and a `KeyboardAvoidingView` moves it only when the
+  keyboard is shown. Fixes the card being cut off at the top on tall screens and on Web.
+
+### Changed
+
+- Still zero runtime dependencies: everything comes from `react-native` core.
+
 ## [1.2.0] - 2026-09-05
 
 ### Added

@@ -23,6 +23,7 @@ const Demo = () => {
   const scheme = useColorScheme();
   const [theme, setTheme] = useState<Theme | undefined>();
   const [appearance, setAppearance] = useState<Appearance | undefined>();
+  const [backdrop, setBackdrop] = useState(false);
   const [result, setResult] = useState('Press a button');
 
   const dark = (appearance ?? scheme) === 'dark';
@@ -86,6 +87,18 @@ const Demo = () => {
         }),
     },
     {
+      title: 'Prompt for a PIN (secure, numeric, 4 digits)',
+      run: () =>
+        Alert.prompt({
+          title: 'PIN',
+          description: 'Numeric keyboard, hidden text, max 4 characters',
+          keyboardType: 'number-pad',
+          secureTextEntry: true,
+          maxLength: 4,
+          inputProps: {returnKeyType: 'done'},
+        }),
+    },
+    {
       title: 'Auto dismiss after 2s',
       run: () => {
         setTimeout(() => Alert.dismiss(), 2000);
@@ -106,6 +119,7 @@ const Demo = () => {
         theme={theme}
         appearance={appearance}
         animationType="fade"
+        dismissOnBackdropPress={backdrop}
       />
       <ScrollView contentContainerStyle={styles.content}>
         <Text style={[styles.title, dark && styles.textDark]}>
@@ -134,6 +148,20 @@ const Demo = () => {
               onPress={() =>
                 setAppearance(value === 'auto' ? undefined : value)
               }
+            />
+          ))}
+        </View>
+
+        <Text style={[styles.label, dark && styles.textDark]}>
+          Tap outside to dismiss
+        </Text>
+        <View style={styles.row}>
+          {([false, true] as const).map(value => (
+            <Chip
+              key={String(value)}
+              label={value ? 'on' : 'off'}
+              active={backdrop === value}
+              onPress={() => setBackdrop(value)}
             />
           ))}
         </View>
