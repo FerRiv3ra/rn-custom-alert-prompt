@@ -21,10 +21,10 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Lint files
-        run: npm run lint
+        run: yarn lint
 
       - name: Typecheck files
-        run: npm run typecheck
+        run: yarn typecheck
 
   test:
     name: Unit tests
@@ -37,7 +37,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Run tests
-        run: npm test -- --ci --coverage
+        run: yarn test --ci --coverage
 
   build-library:
     name: Build package
@@ -50,7 +50,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build package
-        run: npm run build
+        run: yarn build
 
       - name: Check publish contents
         run: npm pack --dry-run

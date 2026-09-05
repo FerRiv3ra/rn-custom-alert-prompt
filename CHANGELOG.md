@@ -37,6 +37,7 @@ All notable changes to this project are documented here. The format is based on
 - Tooling: ESLint 9 flat config, Prettier 3, TypeScript 5.9, React Native 0.83 dev dependencies,
   `@testing-library/react-native` 14, `release-it`, GitHub Actions CI and tag-based release.
 - `peerDependencies`: `react >= 18.2.0`, `react-native >= 0.73.0`. Node 20+ for development.
+- Package manager: Yarn 4 (`packageManager` field, `yarn.lock`). `package-lock.json` removed.
 - Removed the unused `helpers/prompt.ts` duplicate.
 
 ## [1.1.6] - 2025-09-14
